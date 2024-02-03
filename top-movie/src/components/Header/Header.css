@@ -1,9 +1,9 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-
-    margin: 2.4rem 24rem 2.4rem 24rem;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
 }
 
 .logo {
@@ -19,14 +19,25 @@
 }
 
 .nav-list {
-    font-size: 2.4rem;
-    font-weight: 400;
-
     display: flex;
     list-style-type: none;
 }
 
-.nav-list-item:not(:first-child)::before {
+.nav-list-item a:link,
+.nav-list-item a:visited {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    transition: font-weight 0.3s ease;
+}
+
+.nav-list-item a:hover,
+.nav-list-item a:active {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav-list-item:not(:first-child) a::before {
     content: "";
     border: 1px solid rgb(95, 95, 95);
     margin-left: 4rem;
@@ -34,5 +45,5 @@
 }
 
 .hero-img {
-    width: 100vw;
+    width: 100%;
 }
