@@ -6,7 +6,6 @@ function Header() {
     getAll()
         .then((movies) => {
             console.log(movies);
-            console.log("ahahahaha");
         })
         .catch((error) => {
             console.error("Error fetching movies:", error);
