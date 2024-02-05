@@ -1,16 +1,9 @@
 import "./Header.css";
 import heroImage from "../../assets/hero.png";
 import { getAll } from "../../utils/sanity";
+import { useEffect } from "react";
 
 function Header() {
-    getAll()
-        .then((movies) => {
-            console.log(movies);
-        })
-        .catch((error) => {
-            console.error("Error fetching movies:", error);
-        });
-
     return (
         <>
             <div className="header">
