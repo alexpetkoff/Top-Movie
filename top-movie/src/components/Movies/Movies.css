@@ -1,0 +1,63 @@
+.movies-component {
+    margin-top: 4rem;
+}
+
+.premier {
+    text-align: center;
+    background-color: aqua;
+}
+
+.titles {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    background-color: rgba(13, 1, 67, 0.87);
+}
+
+.premier-title {
+    font-size: 4rem;
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.premier-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    background-color: rgb(222, 185, 0);
+}
+.premier-subtitle {
+    font-size: 1.6rem;
+    color: rgba(221, 221, 221, 0.802);
+    margin-top: 1rem;
+}
+
+.filters {
+    margin: 2rem 24rem 2rem 24rem;
+}
+
+.filter-title {
+    font-size: 2rem;
+    padding-right: 2rem;
+    display: inline-block;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+    background-color: #001997;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

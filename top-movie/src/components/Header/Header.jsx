@@ -2,6 +2,7 @@ import "./Header.css";
 import heroImage from "../../assets/hero.png";
 import { getAll } from "../../utils/sanity";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
@@ -11,13 +12,13 @@ function Header() {
                 <div className="main-nav">
                     <ul className="nav-list">
                         <li className="nav-list-item">
-                            <a href="#">Home</a>
+                            <Link to="/">Home</Link>
                         </li>
                         <li className="nav-list-item">
-                            <a href="#">Movies</a>
+                            <Link to="/movies">Movies</Link>
                         </li>
                         <li className="nav-list-item">
-                            <a href="#">Actors</a>
+                            <Link to="#">Actors</Link>
                         </li>
                     </ul>
                 </div>
