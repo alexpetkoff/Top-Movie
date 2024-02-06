@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { DataProvider } from "./contexts/dataContext";
 
 import AboutUs from "./components/AboutUs/AboutUs";
 import Header from "./components/Header/Header";
@@ -9,13 +10,15 @@ import Movies from "./components/Movies/Movies";
 function App() {
     return (
         <Router>
-            <Header />
+            <DataProvider>
+                <Header />
 
-            <Routes>
-                <Route path="/" element={<AboutUs />} />
-                <Route path="/movies" element={<Movies />} />
-            </Routes>
-            <Footer />
+                <Routes>
+                    <Route path="/" element={<AboutUs />} />
+                    <Route path="/movies" element={<Movies />} />
+                </Routes>
+                <Footer />
+            </DataProvider>
         </Router>
     );
 }

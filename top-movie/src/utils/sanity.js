@@ -8,10 +8,33 @@ export const client = createClient({
     useCdn: false,
 });
 
-export async function getAll() {
+export async function getMovies() {
     try {
-        const movies = await client.fetch(`*[_type == "movie"]`);
+        const movies = await client.fetch(`*[_type == 'movie']
+        { _id, 
+          title, 
+          "image": poster.asset->url,
+          "categories": categories[].category->{name, _id},
+        }`);
         return movies;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getActors() {
+    try {
+        const actors = await client.fetch(`*[_type == "person"]`);
+        return actors;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getCategories() {
+    try {
+        const categories = await client.fetch(`*[_type == "category"]`);
+        return categories;
     } catch (error) {
         console.log(error);
     }

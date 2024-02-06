@@ -31,33 +31,58 @@
     height: 2px;
     background-color: rgb(222, 185, 0);
 }
+
 .premier-subtitle {
     font-size: 1.6rem;
     color: rgba(221, 221, 221, 0.802);
     margin-top: 1rem;
 }
 
-.filters {
+.movies-container {
     margin: 2rem 24rem 2rem 24rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters {
+    align-self: flex-start;
+    gap: 2rem;
 }
 
 .filter-title {
     font-size: 2rem;
-    padding-right: 2rem;
-    display: inline-block;
+    display: inline;
+    margin-right: 2rem;
 }
-
 .dropdown {
     display: inline-block;
 }
-
-/* Style the dropdown button */
 .dropbtn {
     background-color: #001997;
     color: white;
-    padding: 10px;
-    font-size: 16px;
+    padding: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+option {
+    font-size: 1.2rem;
+}
+
+.movie-cards-container {
+    margin: 2rem 24rem 2rem 24rem;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
