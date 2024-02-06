@@ -5,6 +5,13 @@ import "./Movies.css";
 
 function Movies() {
     const { movies, categories, actors } = useContext(DataContext);
+    const [isClicked, setIsClicked] = useState(false);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const handleClick = (title) => {
+        setIsClicked(!isClicked);
+        setSelectedMovie(title);
+    };
 
     return (
         <div className="movies-component">
@@ -31,12 +38,18 @@ function Movies() {
 
                 <div className="movie-cards-container">
                     {movies.map((m) => (
-                        <MovieCard
-                            key={m._id}
-                            title={m.title}
-                            image={m.image}
-                            categories={m.categories}
-                        />
+                        <>
+                            <MovieCard
+                                key={m._id}
+                                title={m.title}
+                                image={m.image}
+                                categories={m.categories}
+                                handleClick={handleClick}
+                            />
+                            {isClicked && selectedMovie === m.title ? (
+                                <div className="text">{selectedMovie}</div>
+                            ) : null}
+                        </>
                     ))}
                 </div>
             </div>

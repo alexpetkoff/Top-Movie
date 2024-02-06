@@ -84,5 +84,13 @@ option {
     justify-content: center;
 
     grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "card card card"
+        "more more more";
     gap: 2rem;
+}
+
+.text {
+    font-size: 5rem;
+    grid-area: more;
 }

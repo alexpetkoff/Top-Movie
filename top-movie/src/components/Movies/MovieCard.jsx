@@ -1,6 +1,6 @@
 import "./MovieCard.css";
 
-function MovieCard({ title, image, categories, onViewMore }) {
+function MovieCard({ title, image, categories, handleClick }) {
     return (
         <div className="card-component">
             <div className="image-container">
@@ -16,7 +16,7 @@ function MovieCard({ title, image, categories, onViewMore }) {
             <div className="title">
                 <p className="movie-title">{title}</p>
             </div>
-            <button onClick={onViewMore} className="more-btn">
+            <button onClick={() => handleClick(title)} className="more-btn">
                 View more
             </button>
         </div>

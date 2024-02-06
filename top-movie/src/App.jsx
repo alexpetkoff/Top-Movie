@@ -16,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<AboutUs />} />
                     <Route path="/movies" element={<Movies />} />
+                    <Route path="/actors" element={<Movies />} />
                 </Routes>
                 <Footer />
             </DataProvider>
