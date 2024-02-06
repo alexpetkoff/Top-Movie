@@ -1,7 +1,6 @@
 import "./Header.css";
 import heroImage from "../../assets/hero.png";
-import { getAll } from "../../utils/sanity";
-import { useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
 function Header() {
