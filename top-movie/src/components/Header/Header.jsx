@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
     return (
-        <>
+        <div className="container-inner">
             <div className="header">
                 <div className="logo">top movie</div>
                 <div className="main-nav">
@@ -23,9 +23,15 @@ function Header() {
                 </div>
             </div>
             <div className="hero">
-                <img className="hero-img" src={heroImage} alt="Hero image" />
+                <div className="hero-wrapper">
+                    <img
+                        className="hero-img"
+                        src={heroImage}
+                        alt="Hero image"
+                    />
+                </div>
             </div>
-        </>
+        </div>
     );
 }
 

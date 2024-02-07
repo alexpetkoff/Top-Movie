@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
@@ -44,7 +44,7 @@
     margin-right: 4rem;
 }
 
-.hero-img {
+/* .hero-img {
     width: 100%;
     object-fit: cover;
-}
+} */

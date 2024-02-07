@@ -1,5 +1,11 @@
 .about {
-    margin: 8rem 24rem 2rem 24rem;
+    /* margin: 8rem 24rem 2rem 24rem; */
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+.container-inner {
+    max-width: 120rem;
 }
 
 .about-header {

@@ -1,5 +1,6 @@
 .footer {
-    margin: 8rem 24rem 2rem 24rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,6 @@
 .movies-component {
     margin-top: 4rem;
+    max-width: 120rem;
 }
 
 .premier {
@@ -39,7 +40,8 @@
 }
 
 .movies-container {
-    margin: 2rem 24rem 2rem 24rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     display: flex;
     flex-direction: column;
@@ -75,22 +77,23 @@ option {
 }
 
 .movie-cards-container {
-    margin: 2rem 24rem 2rem 24rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 100%;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
 
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
         "card card card"
-        "more more more";
+        "test test test";
     gap: 2rem;
+    position: relative;
 }
 
 .text {
     font-size: 5rem;
-    grid-area: more;
+    grid-area: test;
+    position: relative;
+    margin-top: 2rem;
+    background-color: rgb(195, 195, 195);
 }
