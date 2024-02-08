@@ -80,18 +80,23 @@ option {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 100%;
+    row-gap: 2rem;
+    display: grid;
+}
 
+.movie-desc {
+    font-size: 5rem;
+    grid-area: desc;
+    background-color: rgb(195, 195, 195);
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.grid-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
         "card card card"
-        "test test test"
-        "test test test";
-    gap: 2rem;
-}
-
-.text {
-    font-size: 5rem;
-    grid-area: test;
-    background-color: rgb(195, 195, 195);
+        "desc desc desc";
+    column-gap: 2rem;
 }

@@ -1,13 +1,7 @@
 import { useState } from "react";
 import "./MovieCard.css";
 
-function MovieCard({ title, image, categories }) {
-    const [isClicked, setIsClicked] = useState(false);
-
-    const handleClick = () => {
-        setIsClicked((prevIsClicked) => !prevIsClicked);
-    };
-
+function MovieCard({ title, image, categories, isClicked, onClick }) {
     return (
         <>
             <div className="card-component">
@@ -24,11 +18,11 @@ function MovieCard({ title, image, categories }) {
                 <div className="title">
                     <p className="movie-title">{title}</p>
                 </div>
-                <button onClick={handleClick} className="more-btn">
+                <button onClick={onClick} className="more-btn">
                     {isClicked ? "View less" : "View more"}
                 </button>
             </div>
-            {isClicked && <div className="text">{title}</div>}
+            {isClicked && <div className="movie-desc">{title}</div>}
         </>
     );
 }

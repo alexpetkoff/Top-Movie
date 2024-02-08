@@ -5,13 +5,22 @@ import "./Movies.css";
 
 function Movies() {
     const { movies, categories, actors } = useContext(DataContext);
-    // // const [isClicked, setIsClicked] = useState(false);
-    // const [selectedMovie, setSelectedMovie] = useState(null);
 
-    // const handleClick = (title) => {
-    //     setIsClicked(() => !isClicked);
-    //     setSelectedMovie(() => title);
-    // };
+    const [clickedIndex, setClickedIndex] = useState(null);
+
+    const handleCardClick = (index) => {
+        clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
+    };
+
+    const chunkArray = (arr, chunkSize) => {
+        const chunkedArray = [];
+        for (let i = 0; i < arr.length; i += chunkSize) {
+            chunkedArray.push(arr.slice(i, i + chunkSize));
+        }
+        return chunkedArray;
+    };
+
+    const chunkedMovies = chunkArray(movies, 3);
 
     return (
         <div className="movies-component">
@@ -37,13 +46,23 @@ function Movies() {
                 </div>
 
                 <div className="movie-cards-container">
-                    {movies.map((m) => (
-                        <MovieCard
-                            key={m._id}
-                            title={m.title}
-                            image={m.image}
-                            categories={m.categories}
-                        />
+                    {chunkedMovies.map((row, rowIndex) => (
+                        <div key={rowIndex} className="grid-row">
+                            {row.map((m, index) => (
+                                <MovieCard
+                                    key={m._id}
+                                    title={m.title}
+                                    image={m.image}
+                                    categories={m.categories}
+                                    isClicked={
+                                        clickedIndex === rowIndex * 3 + index
+                                    }
+                                    onClick={() =>
+                                        handleCardClick(rowIndex * 3 + index)
+                                    }
+                                />
+                            ))}
+                        </div>
                     ))}
                 </div>
             </div>
