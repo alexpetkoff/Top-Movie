@@ -4,8 +4,7 @@ import DataContext from "../../contexts/dataContext";
 import "./Movies.css";
 
 function Movies() {
-    const { movies, categories, actors } = useContext(DataContext);
-
+    const { movies, categories } = useContext(DataContext);
     const [clickedIndex, setClickedIndex] = useState(null);
 
     const handleCardClick = (index) => {
@@ -37,10 +36,11 @@ function Movies() {
                     <div className="dropdown">
                         <select className="dropbtn">
                             <option value="">Category</option>
-                            <option value="genre1">Genre 1</option>
-                            <option value="genre1">Genre 1</option>
-                            <option value="genre1">Genre 1</option>
-                            <option value="genre1">Genre 1</option>
+                            {categories.map((cat) => (
+                                <option key={cat._id} value={cat.name}>
+                                    {cat.name}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
@@ -54,6 +54,10 @@ function Movies() {
                                     title={m.title}
                                     image={m.image}
                                     categories={m.categories}
+                                    overview={m.overview}
+                                    crew={m.crewMembers}
+                                    popularity={m.popularity}
+                                    cast={m.castMembers}
                                     isClicked={
                                         clickedIndex === rowIndex * 3 + index
                                     }

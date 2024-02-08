@@ -1,7 +1,17 @@
 import { useState } from "react";
 import "./MovieCard.css";
 
-function MovieCard({ title, image, categories, isClicked, onClick }) {
+function MovieCard({
+    title,
+    image,
+    categories,
+    overview,
+    crew,
+    popularity,
+    cast,
+    isClicked,
+    onClick,
+}) {
     return (
         <>
             <div
@@ -29,7 +39,56 @@ function MovieCard({ title, image, categories, isClicked, onClick }) {
                     {isClicked ? "View Less" : "View More"}
                 </button>
             </div>
-            {isClicked && <div className="movie-desc">{title}</div>}
+            {isClicked && (
+                <div className="movie-desc">
+                    <div className="movie-overview">
+                        <div className="overview-title">Overview</div>
+                        <div className="overview-text">{overview}</div>
+                    </div>
+                    <div className="popularity">
+                        <div className="popularity-title">Popularity</div>
+                        <div className="popularity-score">{popularity}</div>
+                    </div>
+                    <div className="crew">
+                        <div className="crew-title">Crew Members</div>
+                        <div className="crew-info">
+                            {crew.map((item) => (
+                                <div className="crew-members">
+                                    <img
+                                        className="photo"
+                                        src={item.image}
+                                        alt="photo"
+                                    />
+                                    <div className="crew-details">
+                                        <div className="name">{item.name}</div>
+                                        <div className="job">{item.job}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="crew">
+                        <div className="crew-title">Cast Members</div>
+                        <div className="crew-info">
+                            {cast.map((item) => (
+                                <div className="crew-members">
+                                    <img
+                                        className="photo"
+                                        src={item.image}
+                                        alt="photo"
+                                    />
+                                    <div className="crew-details">
+                                        <div className="name">{item.name}</div>
+                                        <div className="job">
+                                            {item.character}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

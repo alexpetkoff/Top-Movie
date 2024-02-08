@@ -15,6 +15,18 @@ export async function getMovies() {
           title, 
           "image": poster.asset->url,
           "categories": categories[].category->{name, _id},
+          "overview": overview[0].children[0].text,
+          "crewMembers": crewMembers[]{
+            job,
+            "name": person->name,
+            "image": person->image.asset->url
+          },
+          popularity,
+          "castMembers": castMembers[0...5]{
+            "name": person->name,
+            "character": characterName,
+            "image": person->image.asset->url
+          }
         }`);
         return movies;
     } catch (error) {

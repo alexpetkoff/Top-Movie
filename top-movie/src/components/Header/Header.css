@@ -37,12 +37,24 @@
     cursor: pointer;
 }
 
+ul > li {
+    width: 10rem;
+    text-align: center;
+}
+
+.vl {
+    border: 1px solid rgb(95, 95, 95);
+    /* margin-left: 4rem;
+    margin-right: 4rem; */
+}
+
+/* 
 .nav-list-item:not(:first-child) a::before {
     content: "";
     border: 1px solid rgb(95, 95, 95);
     margin-left: 4rem;
     margin-right: 4rem;
-}
+} */
 
 /* .hero-img {
     width: 100%;

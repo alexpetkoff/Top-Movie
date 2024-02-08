@@ -64,6 +64,9 @@ img {
 
     animation-name: example;
     animation-duration: 1s;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .active {
@@ -82,4 +85,49 @@ img {
     to {
         opacity: 1;
     }
+}
+
+.movie-overview,
+.popularity,
+.crew {
+    margin-bottom: 2rem;
+}
+
+.overview-text,
+.popularity-score,
+.crew-people,
+.cast-people {
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #a3a3a3;
+}
+
+.crew-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.crew-members {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    font-size: 1.4rem;
+    color: #a3a3a3;
+    margin: 1rem;
+}
+
+.job {
+    font-size: 1.2rem;
+    color: #a3a3a3;
+    margin: 1rem;
+}
+
+.photo {
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    grid-row: 1 / -1;
 }
