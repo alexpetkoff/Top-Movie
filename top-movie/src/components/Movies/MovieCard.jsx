@@ -4,7 +4,11 @@ import "./MovieCard.css";
 function MovieCard({ title, image, categories, isClicked, onClick }) {
     return (
         <>
-            <div className="card-component">
+            <div
+                className={
+                    isClicked ? "card-component active" : "card-component"
+                }
+            >
                 <div className="image-container">
                     <img src={image} alt="movie image" />
                 </div>
@@ -18,8 +22,11 @@ function MovieCard({ title, image, categories, isClicked, onClick }) {
                 <div className="title">
                     <p className="movie-title">{title}</p>
                 </div>
-                <button onClick={onClick} className="more-btn">
-                    {isClicked ? "View less" : "View more"}
+                <button
+                    onClick={onClick}
+                    className={isClicked ? "more-btn clicked" : "more-btn"}
+                >
+                    {isClicked ? "View Less" : "View More"}
                 </button>
             </div>
             {isClicked && <div className="movie-desc">{title}</div>}
