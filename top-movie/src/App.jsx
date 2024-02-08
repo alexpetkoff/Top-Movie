@@ -6,6 +6,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Movies from "./components/Movies/Movies";
+import Actors from "./components/Actors/Actors";
 
 function App() {
     return (
@@ -16,7 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<AboutUs />} />
                     <Route path="/movies" element={<Movies />} />
-                    <Route path="/actors" element={<Movies />} />
+                    <Route path="/actors" element={<Actors />} />
                 </Routes>
                 <Footer />
             </DataProvider>
