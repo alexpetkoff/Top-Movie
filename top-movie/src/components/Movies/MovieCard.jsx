@@ -9,7 +9,7 @@ function MovieCard({ title, image, categories }) {
     };
 
     return (
-        <div>
+        <>
             <div className="card-component">
                 <div className="image-container">
                     <img src={image} alt="movie image" />
@@ -29,7 +29,7 @@ function MovieCard({ title, image, categories }) {
                 </button>
             </div>
             {isClicked && <div className="text">{title}</div>}
-        </div>
+        </>
     );
 }
 

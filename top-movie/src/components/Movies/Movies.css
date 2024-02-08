@@ -1,6 +1,6 @@
 .movies-component {
     margin-top: 4rem;
-    max-width: 120rem;
+    /* max-width: 120rem; */
 }
 
 .premier {
@@ -85,15 +85,13 @@ option {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
         "card card card"
+        "test test test"
         "test test test";
     gap: 2rem;
-    position: relative;
 }
 
 .text {
     font-size: 5rem;
     grid-area: test;
-    position: relative;
-    margin-top: 2rem;
     background-color: rgb(195, 195, 195);
 }
