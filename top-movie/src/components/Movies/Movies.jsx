@@ -1,11 +1,13 @@
-import MovieCard from "./MovieCard";
-import { useContext, useState } from "react";
-import DataContext from "../../contexts/dataContext";
 import "./Movies.css";
+import { useContext, useEffect, useState } from "react";
+import DataContext from "../../contexts/dataContext";
+import MovieCard from "./MovieCard";
+import Filter from "../Filter/Filter";
 
 function Movies() {
     const { movies, categories } = useContext(DataContext);
     const [clickedIndex, setClickedIndex] = useState(null);
+    // const [selectedCategory, setSelectedCategory] = useState();
 
     const handleCardClick = (index) => {
         clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
@@ -20,6 +22,11 @@ function Movies() {
     };
 
     const chunkedMovies = chunkArray(movies, 3);
+    // useEffect(() => {
+    //     if (movies && movies.length > 1 && selectedCategory != "category") {
+    //         console.log(movies[1].categories);
+    //     }
+    // }, [selectedCategory]);
 
     return (
         <div className="movies-component">
@@ -30,21 +37,9 @@ function Movies() {
                 </div>
             </div>
 
-            <div className="movies-container">
-                <div className="filters">
-                    <div className="filter-title">Filters:</div>
-                    <div className="dropdown">
-                        <select className="dropbtn">
-                            <option value="">Category</option>
-                            {categories.map((cat) => (
-                                <option key={cat._id} value={cat.name}>
-                                    {cat.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                </div>
+            <Filter />
 
+            <div className="movies-container">
                 <div className="movie-cards-container">
                     {chunkedMovies.map((row, rowIndex) => (
                         <div key={rowIndex} className="grid-row">

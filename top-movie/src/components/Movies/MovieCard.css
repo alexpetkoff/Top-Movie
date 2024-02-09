@@ -38,15 +38,18 @@ img {
 
 .more-btn {
     font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
     padding: 0.8rem;
     margin: 2rem;
     width: 90%;
 
     background-color: white;
-    border: 1px solid rgb(156, 156, 156);
+    border: 1px solid rgba(156, 156, 156, 0.276);
     border-radius: 5px;
     cursor: pointer;
-
     transition: all 0.5s ease;
 }
 
@@ -108,8 +111,9 @@ img {
 }
 
 .crew-members {
+    min-width: 30rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 

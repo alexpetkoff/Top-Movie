@@ -39,13 +39,12 @@
 
 ul > li {
     width: 10rem;
-    text-align: center;
+    text-align: end;
 }
 
 .vl {
     border: 1px solid rgb(95, 95, 95);
-    /* margin-left: 4rem;
-    margin-right: 4rem; */
+    margin-left: 4rem;
 }
 
 /* 

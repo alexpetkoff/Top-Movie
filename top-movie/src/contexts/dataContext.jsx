@@ -1,5 +1,10 @@
 import { createContext, useEffect, useState } from "react";
-import { getMovies, getActors, getCategories } from "../utils/sanity";
+import {
+    getMovies,
+    getActors,
+    getCategories,
+    getFilteredMovies,
+} from "../fetching/sanity";
 
 const DataContext = createContext();
 
@@ -9,6 +14,8 @@ export const DataProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
     const [actors, setActors] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [selectedFilter, setSelectedFilter] = useState("none");
+    const [filteredMovies, setFilteredMovies] = useState([]);
 
     useEffect(() => {
         getMovies().then((movies) => {
@@ -24,12 +31,27 @@ export const DataProvider = ({ children }) => {
         });
     }, []);
 
+    useEffect(() => {
+        const fetchFilteredMovies = async () => {
+            if (selectedFilter === "none") {
+                setFilteredMovies(movies);
+            } else {
+                const filtered = await getFilteredMovies(selectedFilter);
+                setFilteredMovies(filtered);
+            }
+        };
+
+        fetchFilteredMovies();
+    }, [selectedFilter, movies]);
+
     return (
         <DataContext.Provider
             value={{
-                movies,
+                movies: filteredMovies,
                 actors,
                 categories,
+                selectedFilter,
+                setSelectedFilter,
             }}
         >
             {children}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./MovieCard.css";
+import icon from "../../assets/no-icon.webp";
 
 function MovieCard({
     title,
@@ -52,11 +53,11 @@ function MovieCard({
                     <div className="crew">
                         <div className="crew-title">Crew Members</div>
                         <div className="crew-info">
-                            {crew.map((item) => (
-                                <div className="crew-members">
+                            {crew.map((item, i) => (
+                                <div key={i} className="crew-members">
                                     <img
                                         className="photo"
-                                        src={item.image}
+                                        src={item.image ? item.image : icon}
                                         alt="photo"
                                     />
                                     <div className="crew-details">
@@ -70,11 +71,11 @@ function MovieCard({
                     <div className="crew">
                         <div className="crew-title">Cast Members</div>
                         <div className="crew-info">
-                            {cast.map((item) => (
-                                <div className="crew-members">
+                            {cast.map((item, i) => (
+                                <div key={i} className="crew-members">
                                     <img
                                         className="photo"
-                                        src={item.image}
+                                        src={item.image ? item.image : icon}
                                         alt="photo"
                                     />
                                     <div className="crew-details">
