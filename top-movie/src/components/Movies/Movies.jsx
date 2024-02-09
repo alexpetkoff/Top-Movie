@@ -7,7 +7,6 @@ import Filter from "../Filter/Filter";
 function Movies() {
     const { movies, categories } = useContext(DataContext);
     const [clickedIndex, setClickedIndex] = useState(null);
-    // const [selectedCategory, setSelectedCategory] = useState();
 
     const handleCardClick = (index) => {
         clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
@@ -22,11 +21,6 @@ function Movies() {
     };
 
     const chunkedMovies = chunkArray(movies, 3);
-    // useEffect(() => {
-    //     if (movies && movies.length > 1 && selectedCategory != "category") {
-    //         console.log(movies[1].categories);
-    //     }
-    // }, [selectedCategory]);
 
     return (
         <div className="movies-component">
