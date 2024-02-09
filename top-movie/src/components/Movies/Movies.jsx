@@ -30,10 +30,10 @@ function Movies() {
                     <p className="premier-subtitle">Comming soon.</p>
                 </div>
             </div>
-            <div className="movies-component">
+            <div className="movies-component container-inner">
                 <Filter />
 
-                <div className="movies-container container-inner">
+                <div className="movies-container">
                     <div className="movie-cards-container">
                         {chunkedMovies.map((row, rowIndex) => (
                             <div key={rowIndex} className="grid-row">

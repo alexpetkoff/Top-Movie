@@ -36,7 +36,10 @@ export async function getMovies() {
 
 export async function getActors() {
     try {
-        const actors = await client.fetch(`*[_type == "person"][0...20]`);
+        const actors = await client.fetch(`*[_type == "person"][20...40]{
+            name,
+            "image": image.asset->url
+          }`);
         return actors;
     } catch (error) {
         console.log(error);
