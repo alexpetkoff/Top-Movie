@@ -62,9 +62,8 @@ img {
     font-size: 5rem;
     grid-area: desc;
     background-color: rgba(237, 237, 237, 0.7);
-    margin-top: 2rem;
     padding: 2rem;
-
+    margin-top: 2rem;
     animation-name: example;
     animation-duration: 1s;
 

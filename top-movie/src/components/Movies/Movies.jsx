@@ -23,43 +23,47 @@ function Movies() {
     const chunkedMovies = chunkArray(movies, 3);
 
     return (
-        <div className="movies-component">
+        <>
             <div className="premier">
                 <div className="titles">
                     <p className="premier-title">Premiere 2023</p>
                     <p className="premier-subtitle">Comming soon.</p>
                 </div>
             </div>
+            <div className="movies-component">
+                <Filter />
 
-            <Filter />
-
-            <div className="movies-container">
-                <div className="movie-cards-container">
-                    {chunkedMovies.map((row, rowIndex) => (
-                        <div key={rowIndex} className="grid-row">
-                            {row.map((m, index) => (
-                                <MovieCard
-                                    key={m._id}
-                                    title={m.title}
-                                    image={m.image}
-                                    categories={m.categories}
-                                    overview={m.overview}
-                                    crew={m.crewMembers}
-                                    popularity={m.popularity}
-                                    cast={m.castMembers}
-                                    isClicked={
-                                        clickedIndex === rowIndex * 3 + index
-                                    }
-                                    onClick={() =>
-                                        handleCardClick(rowIndex * 3 + index)
-                                    }
-                                />
-                            ))}
-                        </div>
-                    ))}
+                <div className="movies-container container-inner">
+                    <div className="movie-cards-container">
+                        {chunkedMovies.map((row, rowIndex) => (
+                            <div key={rowIndex} className="grid-row">
+                                {row.map((m, index) => (
+                                    <MovieCard
+                                        key={m._id}
+                                        title={m.title}
+                                        image={m.image}
+                                        categories={m.categories}
+                                        overview={m.overview}
+                                        crew={m.crewMembers}
+                                        popularity={m.popularity}
+                                        cast={m.castMembers}
+                                        isClicked={
+                                            clickedIndex ===
+                                            rowIndex * 3 + index
+                                        }
+                                        onClick={() =>
+                                            handleCardClick(
+                                                rowIndex * 3 + index
+                                            )
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

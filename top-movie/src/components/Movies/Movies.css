@@ -1,11 +1,12 @@
 .movies-component {
-    margin-top: 4rem;
-    /* max-width: 120rem; */
+    min-width: 120rem;
 }
 
 .premier {
+    width: 100%;
     text-align: center;
     background-color: aqua;
+    margin-top: 4rem;
 }
 
 .titles {

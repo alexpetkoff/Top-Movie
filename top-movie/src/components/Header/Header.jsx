@@ -5,23 +5,25 @@ import { Link } from "react-router-dom";
 
 function Header() {
     return (
-        <div className="container-inner">
-            <div className="header">
-                <div className="logo">top movie</div>
-                <div className="main-nav">
-                    <ul className="nav-list">
-                        <li className="nav-list-item">
-                            <Link to="/">Home</Link>
-                        </li>
-                        <div className="vl"></div>
-                        <li className="nav-list-item">
-                            <Link to="/movies">Movies</Link>
-                        </li>
-                        <div className="vl"></div>
-                        <li className="nav-list-item">
-                            <Link to="/actors">Actors</Link>
-                        </li>
-                    </ul>
+        <>
+            <div className="header-hero-section container-inner">
+                <div className="header container-inner">
+                    <div className="logo">top movie</div>
+                    <div className="main-nav">
+                        <ul className="nav-list">
+                            <li className="nav-list-item">
+                                <Link to="/">Home</Link>
+                            </li>
+                            <div className="vl"></div>
+                            <li className="nav-list-item">
+                                <Link to="/movies">Movies</Link>
+                            </li>
+                            <div className="vl"></div>
+                            <li className="nav-list-item">
+                                <Link to="/actors">Actors</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className="hero">
@@ -33,7 +35,7 @@ function Header() {
                     />
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

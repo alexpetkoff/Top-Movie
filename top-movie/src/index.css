@@ -7,9 +7,8 @@
     margin: 0;
 
     color: rgba(13, 1, 67, 0.87);
-    /* background-color: #ffffff; */
 }
 
 .container-inner {
-    max-width: 120rem;
+    min-width: 120rem;
 }

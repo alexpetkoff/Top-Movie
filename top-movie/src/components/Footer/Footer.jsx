@@ -2,7 +2,7 @@ import "./Footer.css";
 
 function Footer() {
     return (
-        <div className="footer">
+        <div className="footer container-inner">
             <div className="footer-title">
                 &copy; 2023 Top Movie. All rights reserved!{" "}
             </div>

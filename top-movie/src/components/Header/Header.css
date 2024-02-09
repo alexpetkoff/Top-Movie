@@ -1,11 +1,15 @@
+.header-hero-section {
+    margin-top: 2.4rem;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
 }
-
+.hero {
+    margin-top: 2.4rem;
+}
 .logo {
     font-size: 3.2rem;
     font-style: bold;
@@ -46,16 +50,3 @@ ul > li {
     border: 1px solid rgb(95, 95, 95);
     margin-left: 4rem;
 }
-
-/* 
-.nav-list-item:not(:first-child) a::before {
-    content: "";
-    border: 1px solid rgb(95, 95, 95);
-    margin-left: 4rem;
-    margin-right: 4rem;
-} */
-
-/* .hero-img {
-    width: 100%;
-    object-fit: cover;
-} */
