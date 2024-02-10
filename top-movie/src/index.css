@@ -3,10 +3,14 @@
     font-size: 62.5%;
     line-height: 1.5;
     font-weight: 400;
-    padding: 0;
-    margin: 0;
+    box-sizing: border-box;
 
     color: rgba(13, 1, 67, 0.87);
+}
+
+body {
+    padding: 0;
+    margin: 0;
 }
 
 .container-inner {

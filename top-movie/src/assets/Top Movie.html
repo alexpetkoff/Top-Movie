@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" class="hydrated"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+      <script type="module" src="Top%20Movie_files/client"></script>
+
+        <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+        <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link href="Top%20Movie_files/css2.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Top Movie</title>
+    <style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/App.css">#root {
+    font-size: 62.5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/AboutUs/AboutUs.css">.about {
+    /* margin: 8rem 24rem 2rem 24rem; */
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+.container-inner {
+    max-width: 120rem;
+}
+
+.about-header {
+    font-size: 3.6rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.about-content p {
+    margin-top: 5rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: center;
+    color: #696969;
+}
+
+.social-media-icons svg {
+    width: 24px;
+    margin-left: 2rem;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Header/Header.css">.header-hero-section {
+    margin-top: 2.4rem;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero {
+    margin-top: 2.4rem;
+}
+.logo {
+    font-size: 3.2rem;
+    font-style: bold;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-list-item a:link,
+.nav-list-item a:visited {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    transition: font-weight 0.3s ease;
+}
+
+.nav-list-item a:hover,
+.nav-list-item a:active {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul > li {
+    width: 10rem;
+    text-align: end;
+}
+
+.vl {
+    border: 1px solid rgb(95, 95, 95);
+    margin-left: 4rem;
+}
+
+/* MOBILE NAVIGATION */
+
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav-btn {
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+.md {
+    width: 4rem;
+    height: 4rem;
+    color: rgba(16, 0, 85, 0.683);
+}
+
+.close {
+    display: none;
+}
+
+/* max width: 1000px trigger MOBILE NAVIGATION*/
+
+@media (max-width: 62.5em) {
+    .mobile-nav {
+        display: block;
+    }
+
+    .mobile-nav {
+        z-index: 1002;
+    }
+
+    .nav-open .main-nav {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    .nav-open {
+        .open {
+            display: none;
+        }
+        .close {
+            display: block;
+        }
+    }
+
+    .nav-list {
+        margin-top: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-nav {
+        position: absolute;
+        z-index: 1001;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.95) !important;
+
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+
+        .vl {
+            transform: rotate(-90deg);
+            height: 5rem;
+            margin: 0;
+        }
+
+        .nav-list-item {
+            width: 20rem;
+            text-align: center;
+        }
+        .nav-list-item a {
+            font-size: 4rem;
+            text-align: center;
+        }
+    }
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Footer/Footer.css">.footer {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin: 2rem;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-title {
+    font-size: 1.6rem;
+}
+
+.social-media-icons {
+    font-size: 1.6rem;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Movies/Movies.css">.movies-component {
+    width: 100%;
+}
+
+.premier {
+    width: 100%;
+    text-align: center;
+    background-color: aqua;
+    margin-top: 4rem;
+}
+
+.titles {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    background-color: rgba(13, 1, 67, 0.87);
+}
+
+.premier-title {
+    font-size: 4rem;
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.premier-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 2px;
+    background-color: rgb(222, 185, 0);
+}
+
+.premier-subtitle {
+    font-size: 1.6rem;
+    color: rgba(221, 221, 221, 0.802);
+    margin-top: 1rem;
+}
+
+.movies-container {
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.movie-cards-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    row-gap: 2rem;
+    display: grid;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "card card card"
+        "desc desc desc";
+    column-gap: 2rem;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Movies/MovieCard.css">.card-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(173, 173, 173);
+
+    transition: all 0.5s ease;
+}
+
+.image-container {
+    width: 100%;
+    height: 40rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.categories-container {
+    margin-top: 2rem;
+}
+
+.category {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+
+    background-color: rgb(255, 201, 4);
+    border-radius: 5px;
+}
+
+.movie-title {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.more-btn {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    padding: 0.8rem;
+    margin: 2rem;
+    width: 90%;
+
+    background-color: white;
+    border: 1px solid rgba(156, 156, 156, 0.276);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.more-btn:hover {
+    transform: translateY(-5%);
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.movie-desc {
+    font-size: 5rem;
+    grid-area: desc;
+    background-color: rgba(237, 237, 237, 0.7);
+    padding: 2rem;
+    margin-top: 2rem;
+
+    animation-name: anim;
+    animation-duration: 1s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.active {
+    box-shadow: 0rem 0rem 1rem 1rem rgba(0, 0, 0, 0.158);
+}
+
+.clicked {
+    border: none;
+    box-shadow: none;
+}
+
+@keyframes anim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.movie-overview,
+.popularity,
+.crew {
+    margin-bottom: 2rem;
+}
+
+.overview-text,
+.popularity-score,
+.crew-people,
+.cast-people {
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #a3a3a3;
+}
+
+.crew-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.crew-members {
+    min-width: 25rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.name {
+    font-size: 1.4rem;
+    color: #a3a3a3;
+    margin: 1rem;
+}
+
+.job {
+    font-size: 1.2rem;
+    color: #a3a3a3;
+    margin: 1rem;
+}
+
+.photo {
+    padding: 1rem;
+    width: 5rem;
+    height: 5rem;
+    grid-row: 1 / -1;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Filter/Filter.css">.filters {
+    margin-top: 2rem;
+}
+
+.filter-title {
+    font-size: 2rem;
+    display: inline;
+    margin-right: 2rem;
+}
+.dropdown {
+    display: inline-block;
+}
+.dropbtn {
+    background-color: #001997;
+    color: white;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+option {
+    font-size: 1.2rem;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/components/Actors/Actors.css">.actors-component {
+    margin: 4rem;
+}
+
+.actors-grid {
+    display: grid;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.actor-card {
+    border: 1px solid rgba(195, 195, 195, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.actor-photo {
+    transition: transform 0.5s ease;
+}
+
+.actor-photo:hover {
+    transform: scale(1.1);
+}
+
+.actor-name {
+    font-size: 2rem;
+    padding: 2rem;
+}
+</style><style type="text/css" data-vite-dev-id="/Users/aleksandarpetkov/Desktop/Top-Movie/top-movie/src/index.css">* {
+    font-family: "Exo 2", sans-serif;
+    font-size: 62.5%;
+    line-height: 1.5;
+    font-weight: 400;
+    box-sizing: border-box;
+
+    color: rgba(13, 1, 67, 0.87);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-inner {
+    max-width: 120rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
+}
+</style></head>
+    <body>
+        <div id="root"><div class="header-hero-section container-inner"><div class="header container-inner"><div class="logo">top movie</div><div class="main-nav"><ul class="nav-list"><li class="nav-list-item"><a href="http://localhost:5173/">Home</a></li><div class="vl"></div><li class="nav-list-item"><a href="http://localhost:5173/movies">Movies</a></li><div class="vl"></div><li class="nav-list-item"><a href="http://localhost:5173/actors">Actors</a></li></ul></div><div class="mobile-nav"><button class="mobile-nav-btn open"><ion-icon classname="icon-mobile-nav" name="menu-outline" role="img" class="md hydrated"></ion-icon></button><button class="mobile-nav-btn close"><ion-icon classname="icon-mobile-nav" name="close-outline" role="img" class="md hydrated"></ion-icon></button></div></div></div><div class="hero"><div class="hero-wrapper"><img class="hero-img" src="Top%20Movie_files/hero.png" alt="Hero image"></div></div><div class="premier"><div class="titles"><p class="premier-title">Premiere 2023</p><p class="premier-subtitle">Comming soon.</p></div></div><div class="movies-component container-inner"><div class="filters"><div class="filter-title">Filters:</div><div class="dropdown"><select class="dropbtn"><option value="none" selected="selected">None</option><option value="Sci-fi">Sci-fi</option><option value="Drama">Drama</option><option value="Action">Action</option><option value="Horror">Horror</option><option value="Fantasy">Fantasy</option></select></div></div><div class="movies-container"><div class="movie-cards-container"><div class="grid-row"><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/69ad5d60ff19c456954513e8c67e9563c780d5e1-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span></div><div class="title"><p class="movie-title">WALL·E</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/236a8e4d456db62a04f85c39abcfd74c50e0c37b-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Action</span><span class="category">Sci-fi</span></div><div class="title"><p class="movie-title">Guardians of the Galaxy</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/e22a88d23751a84df81f03ef287ae85fc992fe12-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Horror</span></div><div class="title"><p class="movie-title">Alien: Covenant</p></div><button class="more-btn">View More</button></div></div><div class="grid-row"><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/7aa06723bb01a7a79055b6d6f5be80329a0e5b58-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span></div><div class="title"><p class="movie-title">Interstellar</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/60aaeca6580e3bc248678e344fab5d4e5638cc8c-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Action</span><span class="category">Drama</span></div><div class="title"><p class="movie-title">District 9</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/222ce0eaef8662485762791f5c31b60ae627e83d-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span></div><div class="title"><p class="movie-title">The Martian</p></div><button class="more-btn">View More</button></div></div><div class="grid-row"><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/c6683ff02881704e326ca8b198af122e18513570-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span></div><div class="title"><p class="movie-title">Blade Runner 2049</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/5b433475b541fc1f2903d9b281efdde7ac9c28a5-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Horror</span></div><div class="title"><p class="movie-title">Alien</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/fc958a52785af03fea2cf33032b24b72332a5539-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Fantasy</span><span class="category">Action</span><span class="category">Drama</span></div><div class="title"><p class="movie-title">The Dark Tower</p></div><button class="more-btn">View More</button></div></div><div class="grid-row"><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/0a88401628a8205b658f2269a1718542d6a5ac44-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span></div><div class="title"><p class="movie-title">Aliens</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/332ce1adc107e1cd5444369dd88c7fcf78aaa57c-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span><span class="category">Drama</span></div><div class="title"><p class="movie-title">Elysium</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/a1c52c102311a337b6795e207aaccf967c2b98cc-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span></div><div class="title"><p class="movie-title">Prometheus</p></div><button class="more-btn">View More</button></div></div><div class="grid-row"><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/2db1db44ba70003091c0a1dc4c4b5eeb78dde498-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span></div><div class="title"><p class="movie-title">Blade Runner</p></div><button class="more-btn">View More</button></div><div class="card-component"><div class="image-container"><img src="Top%20Movie_files/094eaa00429d71f899271fbd223789c323587d7b-780x1170.jpg" alt="movie image"></div><div class="categories-container"><span class="category">Sci-fi</span><span class="category">Action</span></div><div class="title"><p class="movie-title">Galaxy Quest</p></div><button class="more-btn">View More</button></div></div></div></div></div><div class="footer container-inner"><div class="footer-title">© 2023 Top Movie. All rights reserved! </div><div class="social-media-icons"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="1"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6ZM6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H12V13H11C10.4477 13 10 12.5523 10 12C10 11.4477 10.4477 11 11 11H12V9.5C12 7.567 13.567 6 15.5 6H16.1C16.6523 6 17.1 6.44772 17.1 7C17.1 7.55228 16.6523 8 16.1 8H15.5C14.6716 8 14 8.67157 14 9.5V11H16.1C16.6523 11 17.1 11.4477 17.1 12C17.1 12.5523 16.6523 13 16.1 13H14V20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6Z" fill="#000000"></path></g></svg><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#0F0F0F"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#0F0F0F"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#0F0F0F"></path> </g></svg></div></div></div>
+        <script type="module" src="Top%20Movie_files/main.jsx"></script>
+        <script type="module" src="Top%20Movie_files/ionicons.esm.js"></script>
+        <script nomodule="" src="Top%20Movie_files/ionicons.js"></script>
+    
+
+</body></html>

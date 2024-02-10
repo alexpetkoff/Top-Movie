@@ -1,6 +1,5 @@
 .actors-component {
-    margin-top: 4rem;
-    width: 100%;
+    margin: 4rem;
 }
 
 .actors-grid {
@@ -34,4 +33,22 @@
 .actor-name {
     font-size: 2rem;
     padding: 2rem;
+}
+
+@media (max-width: 62.5em) {
+    .actors-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 50em) {
+    .actors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 32.5em) {
+    .actors-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

@@ -5,22 +5,44 @@ import MovieCard from "./MovieCard";
 import Filter from "../Filter/Filter";
 
 function Movies() {
-    const { movies, categories } = useContext(DataContext);
+    const { movies } = useContext(DataContext);
     const [clickedIndex, setClickedIndex] = useState(null);
+    const [columnSize, setColumnSize] = useState(3);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const currentWidth = window.innerWidth;
+
+            if (currentWidth > 1000) {
+                setColumnSize(3);
+            } else if (currentWidth <= 1000 && currentWidth > 600) {
+                setColumnSize(2);
+            } else if (currentWidth <= 600) {
+                setColumnSize(1);
+            }
+        };
+        window.addEventListener("resize", handleResize);
+
+        handleResize();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     const handleCardClick = (index) => {
         clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
     };
 
-    const chunkArray = (arr, chunkSize) => {
-        const chunkedArray = [];
-        for (let i = 0; i < arr.length; i += chunkSize) {
-            chunkedArray.push(arr.slice(i, i + chunkSize));
+    const columnSizeArray = (arr, columnSize) => {
+        const resizeArray = [];
+        for (let i = 0; i < arr.length; i += columnSize) {
+            resizeArray.push(arr.slice(i, i + columnSize));
         }
-        return chunkedArray;
+        return resizeArray;
     };
 
-    const chunkedMovies = chunkArray(movies, 3);
+    const sizeMovies = columnSizeArray(movies, columnSize);
 
     return (
         <>
@@ -35,7 +57,7 @@ function Movies() {
 
                 <div className="movies-container">
                     <div className="movie-cards-container">
-                        {chunkedMovies.map((row, rowIndex) => (
+                        {sizeMovies.map((row, rowIndex) => (
                             <div key={rowIndex} className="grid-row">
                                 {row.map((m, index) => (
                                     <MovieCard
@@ -49,11 +71,11 @@ function Movies() {
                                         cast={m.castMembers}
                                         isClicked={
                                             clickedIndex ===
-                                            rowIndex * 3 + index
+                                            rowIndex * columnSize + index
                                         }
                                         onClick={() =>
                                             handleCardClick(
-                                                rowIndex * 3 + index
+                                                rowIndex * columnSize + index
                                             )
                                         }
                                     />
