@@ -128,7 +128,7 @@ ul > li {
         visibility: hidden;
 
         .vl {
-            transform: rotate(-90deg);
+            transform: rotate(90deg);
             height: 5rem;
             margin: 0;
         }
