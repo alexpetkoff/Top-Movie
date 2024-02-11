@@ -13,6 +13,7 @@
 .hero {
     margin-top: 2.4rem;
 }
+
 .logo {
     font-size: 3.2rem;
     font-style: bold;
@@ -27,6 +28,8 @@
 
 .nav-list {
     display: flex;
+    justify-content: center;
+    margin-left: -4rem;
     list-style-type: none;
 }
 
