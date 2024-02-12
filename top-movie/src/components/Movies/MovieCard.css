@@ -64,12 +64,8 @@ img {
     background-color: rgba(237, 237, 237, 0.7);
     padding: 2rem;
     margin-top: 2rem;
-
     animation-name: anim;
     animation-duration: 1s;
-
-    display: flex;
-    flex-direction: column;
 }
 
 .active {
