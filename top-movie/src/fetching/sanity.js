@@ -1,16 +1,15 @@
 import { createClient } from '@sanity/client';
 
 export const client = createClient({
-    projectId: "1y5b1ltj",
-    dataset: "production",
-    apiVersion: "2022-10-10",
-    token: 'skaETH4XfrOL4DasB7ECHDfnC5004lr0GTDV9WDFVGA9BNdE5ZiLEXiKzZvLZZIeZVxcY7XJjytZQjQYN51rTzb39LMytw0kqbpCG7sEw20Lq6qBydjGfhQDbrVerkqzBdQnxPAwvn070OuBzXE23Qdo0n4qZYjETD4TllrSiwZfu5HewabD',
-    useCdn: false,
+  projectId: "1y5b1ltj",
+  dataset: "production",
+  apiVersion: "2022-10-10",
+  useCdn: false,
 });
 
 export async function getMovies() {
-    try {
-        const movies = await client.fetch(`*[_type == 'movie']
+  try {
+    const movies = await client.fetch(`*[_type == 'movie']
         { _id, 
           title, 
           "image": poster.asset->url,
@@ -28,36 +27,36 @@ export async function getMovies() {
             "image": person->image.asset->url
           }
         }`);
-        return movies;
-    } catch (error) {
-        console.log(error);
-    }
+    return movies;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getActors() {
-    try {
-        const actors = await client.fetch(`*[_type == "person"][20...40]{
+  try {
+    const actors = await client.fetch(`*[_type == "person"][20...40]{
             name,
             "image": image.asset->url
           }`);
-        return actors;
-    } catch (error) {
-        console.log(error);
-    }
+    return actors;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getCategories() {
-    try {
-        const categories = await client.fetch(`*[_type == "category"]`);
-        return categories;
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const categories = await client.fetch(`*[_type == "category"]`);
+    return categories;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getFilteredMovies(category) {
-    try {
-        const filtered = await client.fetch(`*[_type == 'movie' && "${category}" in categories[].category->name]
+  try {
+    const filtered = await client.fetch(`*[_type == 'movie' && "${category}" in categories[].category->name]
         {   
             _id, 
             title, 
@@ -76,8 +75,8 @@ export async function getFilteredMovies(category) {
               "image": person->image.asset->url
             }
           }`);
-        return filtered;
-    } catch (error) {
-        console.log(error);
-    }
+    return filtered;
+  } catch (error) {
+    console.log(error);
+  }
 }

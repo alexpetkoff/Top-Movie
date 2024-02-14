@@ -4,7 +4,6 @@ import DataContext from "../../contexts/dataContext";
 
 function Actors() {
     const { actors } = useContext(DataContext);
-    console.log(actors);
 
     return (
         <>
