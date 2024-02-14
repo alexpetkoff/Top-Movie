@@ -1,9 +1,17 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./Actors.css";
-import { useContext } from "react";
-import DataContext from "../../contexts/dataContext";
+import { useContext, useEffect } from "react";
+import { fetchActors } from "./actorsSlice";
+// import DataContext from "../../contexts/dataContext";
 
 function Actors() {
-    const { actors } = useContext(DataContext);
+    // const { actors } = useContext(DataContext);
+    const dispatch = useDispatch();
+    const actors = useSelector((state) => state.actors.actors);
+
+    useEffect(() => {
+        dispatch(fetchActors());
+    }, [dispatch]);
 
     return (
         <>
