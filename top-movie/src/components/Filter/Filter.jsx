@@ -4,18 +4,18 @@ import {
     fetchFilteredMovies,
     setSelectedCategory,
     fetchCategories,
+    fetchMovies,
 } from "../Movies/movieSlice";
 
 import { useEffect } from "react";
+import {
+    loadFromLocalStorage,
+    saveToLocalStorage,
+} from "../../utils/utillityFunctions";
 
-import { saveToLocalStorage } from "../../utils/utillityFunctions";
-
-function Filter({ setSearchedMovie }) {
+function Filter({ setSearchedMovie, searchedMovie }) {
     const dispatch = useDispatch();
     const categories = useSelector((state) => state.movies.categories);
-    const selectedFilter = useSelector(
-        (state) => state.movies.selectedCategory
-    );
 
     useEffect(() => {
         dispatch(fetchCategories());
@@ -23,11 +23,18 @@ function Filter({ setSearchedMovie }) {
 
     const handleCategoryChange = (e) => {
         const category = e.target.value;
+        saveToLocalStorage("selectedFilter", category);
         dispatch(setSelectedCategory(category));
-        dispatch(fetchFilteredMovies(category));
+
+        if (category === "none") {
+            dispatch(fetchMovies());
+        } else {
+            dispatch(fetchFilteredMovies(category));
+        }
     };
 
     const handleSearchChange = (e) => {
+        saveToLocalStorage("selectedMovie", e.target.value);
         setSearchedMovie(e.target.value);
     };
 
@@ -38,7 +45,11 @@ function Filter({ setSearchedMovie }) {
                 <div className="dropdown">
                     <select
                         className="dropbtn"
-                        value={selectedFilter}
+                        value={
+                            loadFromLocalStorage("selectedFilter")
+                                ? loadFromLocalStorage("selectedFilter")
+                                : "none"
+                        }
                         onChange={handleCategoryChange}
                     >
                         <option value="none">None</option>
@@ -55,6 +66,11 @@ function Filter({ setSearchedMovie }) {
                     className="search-input"
                     placeholder="Search title..."
                     type="text"
+                    value={
+                        loadFromLocalStorage("selectedMovie")
+                            ? searchedMovie
+                            : ""
+                    }
                     maxLength={15}
                     onChange={handleSearchChange}
                 />

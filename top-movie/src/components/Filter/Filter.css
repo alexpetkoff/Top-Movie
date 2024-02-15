@@ -50,3 +50,10 @@ option {
 .search-btn:hover {
     background-color: rgba(0, 25, 151, 0.8);
 }
+
+@media (max-width: 62.5em) {
+    .filters {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

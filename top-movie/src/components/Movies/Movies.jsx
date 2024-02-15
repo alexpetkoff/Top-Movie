@@ -1,7 +1,6 @@
-// import DataContext from "../../contexts/dataContext";
 import "./Movies.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
     fetchMovies,
     fetchFilteredMovies,
@@ -11,8 +10,8 @@ import MovieCard from "./MovieCard";
 import Filter from "../Filter/Filter";
 import {
     loadFromLocalStorage,
-    saveToLocalStorage,
     columnSizeArray,
+    saveToLocalStorage,
 } from "../../utils/utillityFunctions";
 
 function Movies() {
@@ -23,17 +22,25 @@ function Movies() {
     const dispatch = useDispatch();
     const movies = useSelector((state) => state.movies.movies);
 
-    const selectedFilter = useSelector(
-        (state) => state.movies.selectedCategory
-    );
-
     useEffect(() => {
-        if (selectedFilter === "none") {
-            dispatch(fetchMovies());
-        } else {
-            dispatch(fetchFilteredMovies());
+        const searchQuery = loadFromLocalStorage("selectedMovie");
+        const selectedFilterStorage = loadFromLocalStorage("selectedFilter");
+
+        if (searchQuery) {
+            setSearchedMovie(searchQuery);
         }
-    }, [selectedFilter, dispatch]);
+
+        if (selectedFilterStorage) {
+            dispatch(setSelectedCategory(selectedFilterStorage));
+            if (selectedFilterStorage === "none") {
+                dispatch(fetchMovies());
+            } else {
+                dispatch(fetchFilteredMovies(selectedFilterStorage));
+            }
+        } else {
+            dispatch(fetchMovies());
+        }
+    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -75,7 +82,10 @@ function Movies() {
                 </div>
             </div>
             <div className="movies-component container-inner">
-                <Filter setSearchedMovie={setSearchedMovie} />
+                <Filter
+                    setSearchedMovie={setSearchedMovie}
+                    searchedMovie={searchedMovie}
+                />
 
                 <div className="movies-container">
                     <div className="movie-cards-container">
