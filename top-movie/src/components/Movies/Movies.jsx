@@ -11,7 +11,6 @@ import Filter from "../Filter/Filter";
 import {
     loadFromLocalStorage,
     columnSizeArray,
-    saveToLocalStorage,
 } from "../../utils/utillityFunctions";
 
 function Movies() {
@@ -67,11 +66,11 @@ function Movies() {
         clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
     };
 
-    const foundMovies = movies.filter((movie) =>
+    const resultMovies = movies.filter((movie) =>
         movie.title.toLowerCase().includes(searchedMovie.toLowerCase())
     );
 
-    const sizeMovies = columnSizeArray(foundMovies, columnSize);
+    const sizeMovies = columnSizeArray(resultMovies, columnSize);
 
     return (
         <>
