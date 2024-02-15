@@ -12,20 +12,26 @@ function Filter() {
 
     return (
         <div className="filters">
-            <div className="filter-title">Filters:</div>
-            <div className="dropdown">
-                <select
-                    className="dropbtn"
-                    value={selectedFilter}
-                    onChange={onFilterChange}
-                >
-                    <option value="none">None</option>
-                    {categories.map((cat) => (
-                        <option key={cat._id} value={cat.name}>
-                            {cat.name}
-                        </option>
-                    ))}
-                </select>
+            <div className="filter-field">
+                <div className="filter-title">Filters:</div>
+                <div className="dropdown">
+                    <select
+                        className="dropbtn"
+                        value={selectedFilter}
+                        onChange={onFilterChange}
+                    >
+                        <option value="none">None</option>
+                        {categories.map((cat) => (
+                            <option key={cat._id} value={cat.name}>
+                                {cat.name}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </div>
+            <div className="search-field">
+                <input type="text" />
+                <button className="search-btn">Search</button>
             </div>
         </div>
     );

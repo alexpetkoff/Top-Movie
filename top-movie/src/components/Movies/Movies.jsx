@@ -1,11 +1,21 @@
 import "./Movies.css";
+import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
-import DataContext from "../../contexts/dataContext";
+// import DataContext from "../../contexts/dataContext";
+import { fetchMovies, fetchFilteredMovies } from "./movieSlice";
 import MovieCard from "./MovieCard";
 import Filter from "../Filter/Filter";
 
 function Movies() {
-    const { movies } = useContext(DataContext);
+    // const { movies } = useContext(DataContext);
+    const dispatch = useDispatch();
+    const movies = useSelector((state) => state.movies.movies);
+    console.log(movies);
+
+    useEffect(() => {
+        dispatch(fetchMovies());
+    }, [dispatch]);
+
     const [clickedIndex, setClickedIndex] = useState(null);
     const [columnSize, setColumnSize] = useState(3);
 
