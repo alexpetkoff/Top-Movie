@@ -1,13 +1,34 @@
+import { useDispatch, useSelector } from "react-redux";
 import "./Filter.css";
-import { useContext, useState } from "react";
-import DataContext from "../../contexts/dataContext";
+import {
+    fetchFilteredMovies,
+    setSelectedCategory,
+    fetchCategories,
+} from "../Movies/movieSlice";
 
-function Filter() {
-    const { categories, selectedFilter, setSelectedFilter } =
-        useContext(DataContext);
+import { useEffect } from "react";
 
-    const onFilterChange = (e) => {
-        setSelectedFilter(e.target.value);
+import { saveToLocalStorage } from "../../utils/utillityFunctions";
+
+function Filter({ setSearchedMovie }) {
+    const dispatch = useDispatch();
+    const categories = useSelector((state) => state.movies.categories);
+    const selectedFilter = useSelector(
+        (state) => state.movies.selectedCategory
+    );
+
+    useEffect(() => {
+        dispatch(fetchCategories());
+    }, [dispatch]);
+
+    const handleCategoryChange = (e) => {
+        const category = e.target.value;
+        dispatch(setSelectedCategory(category));
+        dispatch(fetchFilteredMovies(category));
+    };
+
+    const handleSearchChange = (e) => {
+        setSearchedMovie(e.target.value);
     };
 
     return (
@@ -18,7 +39,7 @@ function Filter() {
                     <select
                         className="dropbtn"
                         value={selectedFilter}
-                        onChange={onFilterChange}
+                        onChange={handleCategoryChange}
                     >
                         <option value="none">None</option>
                         {categories.map((cat) => (
@@ -30,8 +51,13 @@ function Filter() {
                 </div>
             </div>
             <div className="search-field">
-                <input type="text" />
-                <button className="search-btn">Search</button>
+                <input
+                    className="search-input"
+                    placeholder="Search title..."
+                    type="text"
+                    maxLength={15}
+                    onChange={handleSearchChange}
+                />
             </div>
         </div>
     );

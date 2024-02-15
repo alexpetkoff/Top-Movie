@@ -26,3 +26,27 @@
 option {
     font-size: 1.2rem;
 }
+
+.search-field {
+}
+
+.search-input {
+    width: 40rem;
+    font-size: 2rem;
+    border: 2px solid black;
+}
+
+.search-btn {
+    color: white;
+    background-color: #001997;
+    font-size: 2rem;
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-btn:hover {
+    background-color: rgba(0, 25, 151, 0.8);
+}

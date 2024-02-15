@@ -1,23 +1,39 @@
+// import DataContext from "../../contexts/dataContext";
 import "./Movies.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
-// import DataContext from "../../contexts/dataContext";
-import { fetchMovies, fetchFilteredMovies } from "./movieSlice";
+import {
+    fetchMovies,
+    fetchFilteredMovies,
+    setSelectedCategory,
+} from "./movieSlice";
 import MovieCard from "./MovieCard";
 import Filter from "../Filter/Filter";
+import {
+    loadFromLocalStorage,
+    saveToLocalStorage,
+    columnSizeArray,
+} from "../../utils/utillityFunctions";
 
 function Movies() {
-    // const { movies } = useContext(DataContext);
-    const dispatch = useDispatch();
-    const movies = useSelector((state) => state.movies.movies);
-    console.log(movies);
-
-    useEffect(() => {
-        dispatch(fetchMovies());
-    }, [dispatch]);
-
+    const [searchedMovie, setSearchedMovie] = useState("");
     const [clickedIndex, setClickedIndex] = useState(null);
     const [columnSize, setColumnSize] = useState(3);
+
+    const dispatch = useDispatch();
+    const movies = useSelector((state) => state.movies.movies);
+
+    const selectedFilter = useSelector(
+        (state) => state.movies.selectedCategory
+    );
+
+    useEffect(() => {
+        if (selectedFilter === "none") {
+            dispatch(fetchMovies());
+        } else {
+            dispatch(fetchFilteredMovies());
+        }
+    }, [selectedFilter, dispatch]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -44,15 +60,11 @@ function Movies() {
         clickedIndex != index ? setClickedIndex(index) : setClickedIndex(null);
     };
 
-    const columnSizeArray = (arr, columnSize) => {
-        const resizeArray = [];
-        for (let i = 0; i < arr.length; i += columnSize) {
-            resizeArray.push(arr.slice(i, i + columnSize));
-        }
-        return resizeArray;
-    };
+    const foundMovies = movies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchedMovie.toLowerCase())
+    );
 
-    const sizeMovies = columnSizeArray(movies, columnSize);
+    const sizeMovies = columnSizeArray(foundMovies, columnSize);
 
     return (
         <>
@@ -63,7 +75,7 @@ function Movies() {
                 </div>
             </div>
             <div className="movies-component container-inner">
-                <Filter />
+                <Filter setSearchedMovie={setSearchedMovie} />
 
                 <div className="movies-container">
                     <div className="movie-cards-container">
