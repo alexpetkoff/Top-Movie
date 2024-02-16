@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import {
     loadFromLocalStorage,
     saveToLocalStorage,
-} from "../../utils/utillityFunctions";
+} from "../../utils/utilFuncs";
 
 function Filter({ setSearchedMovie, searchedMovie }) {
     const dispatch = useDispatch();

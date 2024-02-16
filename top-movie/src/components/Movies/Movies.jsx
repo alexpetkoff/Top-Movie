@@ -8,10 +8,7 @@ import {
 } from "./movieSlice";
 import MovieCard from "./MovieCard";
 import Filter from "../Filter/Filter";
-import {
-    loadFromLocalStorage,
-    columnSizeArray,
-} from "../../utils/utillityFunctions";
+import { loadFromLocalStorage, columnSizeArray } from "../../utils/utilFuncs";
 
 function Movies() {
     const [searchedMovie, setSearchedMovie] = useState("");

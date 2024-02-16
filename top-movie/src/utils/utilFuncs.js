@@ -14,3 +14,4 @@ export const columnSizeArray = (arr, columnSize) => {
     }
     return resizeArray;
 };
+
