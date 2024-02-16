@@ -64,7 +64,7 @@ function Movies() {
     };
 
     const resultMovies = movies.filter((movie) =>
-        movie.title.toLowerCase().includes(searchedMovie.toLowerCase())
+        movie.title.toLowerCase().includes(searchedMovie.toLowerCase().trim())
     );
 
     const sizeMovies = columnSizeArray(resultMovies, columnSize);
