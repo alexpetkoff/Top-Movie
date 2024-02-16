@@ -39,7 +39,7 @@ function Movies() {
         } else {
             dispatch(fetchMovies());
         }
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         const handleResize = () => {
